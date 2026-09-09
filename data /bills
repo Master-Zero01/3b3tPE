@@ -1,0 +1,9 @@
+[
+  { "month": "September 2026", "paid": 35, "total": 35 },
+  { "month": "October 2026", "paid": 35, "total": 35 },
+  { "month": "November 2026", "paid": 35, "total": 35 },
+  { "month": "December 2026", "paid": 35, "total": 35 },
+  { "month": "January 2027", "paid": 35, "total": 35 },
+  { "month": "February 2027", "paid": 35, "total": 35 },
+  { "month": "March 2027", "paid": 25, "total": 35 }
+]
