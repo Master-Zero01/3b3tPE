@@ -79,6 +79,18 @@ main{min-height:calc(100vh - 130px)}
 .list-item strong{font:700 13px var(--mono);text-transform:uppercase}
 .list-item p{margin:8px 0 0;color:#888;font-size:13px;line-height:1.7}
 
+.bill-list{display:grid;border:1px solid var(--line);background:#0e0e12}
+.bill-item{padding:20px 25px;border-bottom:1px solid var(--line);display:grid;grid-template-columns:180px 1fr auto;gap:22px;align-items:center}
+.bill-item:last-child{border-bottom:0}
+.bill-month{font:700 13px var(--mono);text-transform:uppercase;color:#ddd}
+.bill-track{height:8px;background:#1a1a20;border:1px solid #2a2a32;overflow:hidden;position:relative}
+.bill-fill{height:100%;background:linear-gradient(90deg,var(--violet),var(--lime));box-shadow:0 0 12px rgba(155,229,100,.3)}
+.bill-fill.short{background:linear-gradient(90deg,var(--violet-2),var(--violet))}
+.bill-amount{font:700 12px var(--mono);color:#999;text-align:right;min-width:95px}
+.bill-amount.full{color:var(--lime-2)}
+.bill-amount.short{color:#b7aaff}
+
+
 .code{font:12px var(--mono);color:#ddd;background:#0a0a0d;border:1px solid #2a2a32;padding:3px 7px}
 
 .command-group{border:1px solid var(--line);margin-bottom:18px;background:#0e0e12}
@@ -126,7 +138,7 @@ footer{border-top:1px solid var(--line);padding:28px 22px;color:#555;font:10px v
 .btn.secondary:hover{border-color:var(--lime);color:var(--lime);background:linear-gradient(135deg,rgba(124,108,255,.22),rgba(155,229,100,.14))}
 
 @media(max-width:900px){.navlinks{gap:2px}.navlinks a{padding:8px 7px}.links{grid-template-columns:1fr 1fr}}
-@media(max-width:700px){nav{min-height:auto;padding:14px 18px;flex-direction:column}.navlinks{display:grid;grid-template-columns:repeat(3,1fr);width:100%}.navlinks a{text-align:center;border-color:#222}.page-hero{padding:95px 18px 55px}.page-hero h1{letter-spacing:-4px}.section-inner{padding:55px 18px}.section-title{align-items:flex-start;flex-direction:column;gap:8px}.links{grid-template-columns:1fr}.issue{grid-template-columns:auto 1fr}.issue-q{grid-column:2}.footer-inner{flex-direction:column}.footer-inner span:last-child{text-align:left}}
+@media(max-width:700px){nav{min-height:auto;padding:14px 18px;flex-direction:column}.navlinks{display:grid;grid-template-columns:repeat(3,1fr);width:100%}.navlinks a{text-align:center;border-color:#222}.page-hero{padding:95px 18px 55px}.page-hero h1{letter-spacing:-4px}.section-inner{padding:55px 18px}.section-title{align-items:flex-start;flex-direction:column;gap:8px}.links{grid-template-columns:1fr}.issue{grid-template-columns:auto 1fr}.issue-q{grid-column:2}.footer-inner{flex-direction:column}.footer-inner span:last-child{text-align:left}.bill-item{grid-template-columns:1fr;gap:10px}.bill-amount{text-align:left}}
 </style></head>
 <body><div class="noise"></div><header><nav>
 <a class="brand" href="index.html"><span class="core">3B3T</span><span class="pe">PE</span><span class="ext">.ORG</span></a>
@@ -153,12 +165,24 @@ footer{border-top:1px solid var(--line);padding:28px 22px;color:#555;font:10px v
 <div class="list">
 <div class="list-item"><span class="num">01</span><div><strong>Address</strong><p>3b3tpe.org</p></div></div>
 <div class="list-item"><span class="num">02</span><div><strong>Port</strong><p>Default</p></div></div>
-<div class="list-item"><span class="num">03</span><div><strong>Current Version</strong><p>1.21.11</p></div></div>
+<div class="list-item"><span class="num">03</span><div><strong>Current Version</strong><p>Updated to 1.21.11</p></div></div>
 <div class="list-item"><span class="num">04</span><div><strong>Supported Versions</strong><p>1.18 — 26.2. Efforts will be made to keep up with the latest version of Minecraft.</p></div></div>
 <div class="list-item"><span class="num">05</span><div><strong>Combat</strong><p>1.8 combat mechanics</p></div></div>
 </div></div></section>
 <section class="section"><div class="section-inner">
-<div class="section-title"><h2>Explore</h2><span class="section-number">02 / HOME</span></div>
+<div class="section-title"><h2>Server bill tracker</h2><span class="section-number">02 / HOME</span></div>
+<div class="bill-list">
+<div class="bill-item"><span class="bill-month">September 2026</span><div class="bill-track"><div class="bill-fill" style="width:100%"></div></div><span class="bill-amount full">$35 / $35</span></div>
+<div class="bill-item"><span class="bill-month">October 2026</span><div class="bill-track"><div class="bill-fill" style="width:100%"></div></div><span class="bill-amount full">$35 / $35</span></div>
+<div class="bill-item"><span class="bill-month">November 2026</span><div class="bill-track"><div class="bill-fill" style="width:100%"></div></div><span class="bill-amount full">$35 / $35</span></div>
+<div class="bill-item"><span class="bill-month">December 2026</span><div class="bill-track"><div class="bill-fill" style="width:100%"></div></div><span class="bill-amount full">$35 / $35</span></div>
+<div class="bill-item"><span class="bill-month">January 2027</span><div class="bill-track"><div class="bill-fill" style="width:100%"></div></div><span class="bill-amount full">$35 / $35</span></div>
+<div class="bill-item"><span class="bill-month">February 2027</span><div class="bill-track"><div class="bill-fill" style="width:100%"></div></div><span class="bill-amount full">$35 / $35</span></div>
+<div class="bill-item"><span class="bill-month">March 2027</span><div class="bill-track"><div class="bill-fill short" style="width:57%"></div></div><span class="bill-amount short">$20 / $35</span></div>
+</div>
+</div></section>
+<section class="section"><div class="section-inner">
+<div class="section-title"><h2>Explore</h2><span class="section-number">03 / HOME</span></div>
 <div class="links">
 <a class="link-card" href="modifications.html"><strong>Modifications</strong><span>Server gameplay and technical modifications.</span></a>
 <a class="link-card" href="issues.html"><strong>Issues</strong><span>Current bugs, limitations and confirmed issues.</span></a>
