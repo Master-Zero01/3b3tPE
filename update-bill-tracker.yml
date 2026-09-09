@@ -1,0 +1,46 @@
+name: Update server bill tracker
+
+# Run this manually whenever the bill is paid — no schedule needed.
+# Go to the "Actions" tab on GitHub, pick "Update server bill tracker",
+# click "Run workflow", fill in the three fields, and run it.
+on:
+  workflow_dispatch:
+    inputs:
+      month:
+        description: 'Month and year, e.g. "April 2027"'
+        required: true
+        type: string
+      paid:
+        description: "Amount paid so far, in dollars (e.g. 35)"
+        required: true
+        type: string
+      total:
+        description: "Total bill amount, in dollars (e.g. 35)"
+        required: true
+        default: "35"
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  update-tracker:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Update bills.json and index.html
+        run: node scripts/update-bills.js "${{ github.event.inputs.month }}" "${{ github.event.inputs.paid }}" "${{ github.event.inputs.total }}"
+
+      - name: Commit and push changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/bills.json index.html
+          if git diff --cached --quiet; then
+            echo "Nothing changed."
+          else
+            git commit -m "Update server bill tracker: ${{ github.event.inputs.month }} (\$${{ github.event.inputs.paid }} / \$${{ github.event.inputs.total }})"
+            git push
+          fi
